@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.IO.Ports;
+using System.Threading;
 
 namespace CapacitiveTouchSensingKitService
 {
@@ -20,7 +21,7 @@ namespace CapacitiveTouchSensingKitService
         SerialPort serialPrt;
         string selectedPort = "";
         bool isSerialReadActive = false;
-
+        Thread readThread;
 
         public Form1()
         {
@@ -30,14 +31,16 @@ namespace CapacitiveTouchSensingKitService
             List<string> allSerialPorts = allSerialPorts_array.ToList<string>();
             allSerialPorts.Insert(0, "----------");
             comboBox7.DataSource = allSerialPorts;*/
-            trackBar1.SetRange(400, 10000);
+            /*trackBar1.SetRange(400, 10000);
             trackBar2.SetRange(400, 10000);
             trackBar3.SetRange(400, 10000);
             trackBar4.SetRange(400, 10000);
             trackBar5.SetRange(400, 10000);
-            trackBar6.SetRange(400, 10000);
+            trackBar6.SetRange(400, 10000);*/
 
             //checkIfArduinoConnected();
+            
+            
         }
 
         void updateSerialPorts()
@@ -84,14 +87,14 @@ namespace CapacitiveTouchSensingKitService
         void checkIfPortValidAndConnect(string port)
         {
             serialPrt = new SerialPort();
-            serialPrt.BaudRate = 9600;
+            serialPrt.BaudRate = 115200;
             serialPrt.PortName = port;
             selectedPort = "";
             try
             {
                 serialPrt.Open();
                 selectedPort = port;
-                serialPrt.DataReceived += new SerialDataReceivedEventHandler(sprt_DataReceived);
+                //serialPrt.DataReceived += new SerialDataReceivedEventHandler(sprt_DataReceived);
                 Debug.WriteLine("Port " + port + " selected");
             }
             catch (Exception e)
@@ -112,6 +115,8 @@ namespace CapacitiveTouchSensingKitService
                 pictureBox1.BackColor = Color.SkyBlue;
                 label11.Visible = true;
                 label10.Visible = false;
+                readThread = new Thread(readSerial);
+                readThread.Start();
                 //passKeyEvents();
             }
         }
@@ -135,17 +140,48 @@ namespace CapacitiveTouchSensingKitService
             }*/
         }
 
-        private void sprt_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        void readSerial()
+        {
+            while (isSerialReadActive)
+            {
+                if (serialPrt.IsOpen)
+                {
+                    try
+                    {
+                        string indata = serialPrt.ReadLine();
+                        //Debug.WriteLine("indata" + indata);
+                        int incomingVal = 0;
+                        if (int.TryParse(indata, out incomingVal))
+                        {
+                            SendKeys.SendWait("" + incomingVal);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine(e);
+                    }
+                }
+            }
+        }
+
+        /*private void sprt_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string indata = serialPrt.ReadLine();
-            Debug.WriteLine("indata" + indata);
-            SendKeys.SendWait(indata);
-        }
+            //Debug.WriteLine("indata" + indata);
+            int incomingVal = 0;
+            if (int.TryParse(indata, out incomingVal))
+            {
+                SendKeys.SendWait(""+incomingVal);
+            }
+        }*/
 
         void stopArduinoRead(object sender, EventArgs e)
         {
-            Debug.WriteLine("stopArduinoRead");
-            //isSerialReadActive = false;
+            //readThread.Abort();
+            serialPrt.Close();
+            //Debug.WriteLine("stopArduinoRead");
+            isSerialReadActive = false;
+
         }
 
         void onSelectSerialPort(object sender, EventArgs e)
