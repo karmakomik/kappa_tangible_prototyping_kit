@@ -22,6 +22,7 @@ namespace CapacitiveTouchSensingKitService
         string selectedPort = "";
         bool isSerialReadActive = false;
         Thread readThread;
+        string comboBoxSelectedText1, comboBoxSelectedText2, comboBoxSelectedText3, comboBoxSelectedText4, comboBoxSelectedText5, comboBoxSelectedText6;
 
         public Form1()
         {
@@ -39,8 +40,42 @@ namespace CapacitiveTouchSensingKitService
             trackBar6.SetRange(400, 10000);*/
 
             //checkIfArduinoConnected();
-            
-            
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 1;
+            comboBox4.SelectedIndex = 2;
+            comboBox5.SelectedIndex = 3;
+            comboBox6.SelectedIndex = 4;
+            comboBox3.SelectedIndex = 5;
+            updateComboBoxSelectedVals();
+            comboBox1.SelectedIndexChanged += new System.EventHandler(updateComboBoxSelectedVals_event);
+            comboBox2.SelectedIndexChanged += new System.EventHandler(updateComboBoxSelectedVals_event);
+            comboBox3.SelectedIndexChanged += new System.EventHandler(updateComboBoxSelectedVals_event);
+            comboBox4.SelectedIndexChanged += new System.EventHandler(updateComboBoxSelectedVals_event);
+            comboBox5.SelectedIndexChanged += new System.EventHandler(updateComboBoxSelectedVals_event);
+            comboBox6.SelectedIndexChanged += new System.EventHandler(updateComboBoxSelectedVals_event);            
+        }
+
+        void updateComboBoxSelectedVals()
+        {
+            comboBoxSelectedText1 = comboBox1.SelectedItem.ToString();
+            comboBoxSelectedText2 = comboBox2.SelectedItem.ToString();
+            comboBoxSelectedText3 = comboBox3.SelectedItem.ToString();
+            comboBoxSelectedText4 = comboBox4.SelectedItem.ToString();
+            comboBoxSelectedText5 = comboBox5.SelectedItem.ToString();
+            comboBoxSelectedText6 = comboBox6.SelectedItem.ToString();
+
+            if (comboBoxSelectedText1 == "{SPACE}") comboBoxSelectedText1 = " ";
+            if (comboBoxSelectedText2 == "{SPACE}") comboBoxSelectedText2 = " ";
+            if (comboBoxSelectedText3 == "{SPACE}") comboBoxSelectedText3 = " ";
+            if (comboBoxSelectedText4 == "{SPACE}") comboBoxSelectedText4 = " ";
+            if (comboBoxSelectedText5 == "{SPACE}") comboBoxSelectedText5 = " ";
+            if (comboBoxSelectedText6 == "{SPACE}") comboBoxSelectedText6 = " ";
+        }
+
+        void updateComboBoxSelectedVals_event(object sender, EventArgs e)
+        {
+            bringScratchToForeground();
+            updateComboBoxSelectedVals();
         }
 
         void updateSerialPorts()
@@ -50,39 +85,6 @@ namespace CapacitiveTouchSensingKitService
             allSerialPorts.Insert(0, "----------");
             comboBox7.DataSource = allSerialPorts;
         }
-
-        /*void checkIfArduinoConnected()
-        {
-            serialPrt = new SerialPort();
-            serialPrt.BaudRate = 9600;
-            string[] allSerialPorts = SerialPort.GetPortNames();
-            foreach (string s in allSerialPorts)
-            {
-                serialPrt.PortName = s;
-                try
-                {
-                    serialPrt.Open();
-                    selectedPort = s;
-                    Debug.WriteLine("COM port " + s + " selected");
-                    break;
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine(e);
-                }                
-            }
-            if (selectedPort == "")
-            {
-                Debug.WriteLine("No COM port found");
-            }
-            else
-            {
-                tableLayoutPanel1.Visible = true;
-                pictureBox1.BackColor = Color.SkyBlue;
-                label11.Visible = true;
-                label10.Visible = false;
-            }
-        }*/
 
         void checkIfPortValidAndConnect(string port)
         {
@@ -117,7 +119,18 @@ namespace CapacitiveTouchSensingKitService
                 label10.Visible = false;
                 readThread = new Thread(readSerial);
                 readThread.Start();
+                bringScratchToForeground();
                 //passKeyEvents();
+            }
+        }
+
+        void bringScratchToForeground()
+        {
+            Process p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
+            if (p != null)
+            {
+                IntPtr h = p.MainWindowHandle;
+                SetForegroundWindow(h);
             }
         }
 
@@ -153,7 +166,36 @@ namespace CapacitiveTouchSensingKitService
                         int incomingVal = 0;
                         if (int.TryParse(indata, out incomingVal))
                         {
-                            SendKeys.SendWait("" + incomingVal);
+                            switch (incomingVal)
+                            {
+                                case 1:
+                                    //Debug.WriteLine("" + comboBoxSelectedText1);
+                                    SendKeys.SendWait("" + comboBoxSelectedText1);
+                                    break;
+                                case 2:
+                                    SendKeys.SendWait("" + comboBoxSelectedText2);
+                                    //Debug.WriteLine("" + comboBoxSelectedText2);
+                                    break;
+                                case 3:
+                                    SendKeys.SendWait("" + comboBoxSelectedText3);
+                                    //Debug.WriteLine("" + comboBoxSelectedText3);
+                                    break;
+                                case 4:
+                                    SendKeys.SendWait("" + comboBoxSelectedText4);
+                                    //Debug.WriteLine("" + comboBoxSelectedText4);
+                                    break;
+                                case 5:
+                                    SendKeys.SendWait("" + comboBoxSelectedText5);
+                                    //Debug.WriteLine("" + comboBoxSelectedText5);
+                                    break;
+                                case 6:
+                                    SendKeys.SendWait("" + comboBoxSelectedText6);
+                                    //Debug.WriteLine("" + comboBoxSelectedText6);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            //SendKeys.SendWait("" + incomingVal);
                         }
                     }
                     catch (Exception e)
@@ -163,17 +205,6 @@ namespace CapacitiveTouchSensingKitService
                 }
             }
         }
-
-        /*private void sprt_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            string indata = serialPrt.ReadLine();
-            //Debug.WriteLine("indata" + indata);
-            int incomingVal = 0;
-            if (int.TryParse(indata, out incomingVal))
-            {
-                SendKeys.SendWait(""+incomingVal);
-            }
-        }*/
 
         void stopArduinoRead(object sender, EventArgs e)
         {

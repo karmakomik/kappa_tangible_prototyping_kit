@@ -173,7 +173,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.56951F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.43049F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
             this.tableLayoutPanel1.Controls.Add(this.comboBox6, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.comboBox5, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.comboBox4, 1, 3);
@@ -216,11 +216,11 @@
             this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
-            "UP",
-            "DOWN",
-            "LEFT",
-            "RIGHT",
-            "SPACE",
+            "{UP}",
+            "{DOWN}",
+            "{LEFT}",
+            "{RIGHT}",
+            "{SPACE}",
             "a",
             "b",
             "c",
@@ -249,7 +249,7 @@
             this.comboBox6.Location = new System.Drawing.Point(121, 169);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(76, 21);
+            this.comboBox6.Size = new System.Drawing.Size(75, 21);
             this.comboBox6.TabIndex = 14;
             // 
             // comboBox5
@@ -259,11 +259,11 @@
             this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Items.AddRange(new object[] {
-            "UP",
-            "DOWN",
-            "LEFT",
-            "RIGHT",
-            "SPACE",
+            "{UP}",
+            "{DOWN}",
+            "{LEFT}",
+            "{RIGHT}",
+            "{SPACE}",
             "a",
             "b",
             "c",
@@ -292,7 +292,7 @@
             this.comboBox5.Location = new System.Drawing.Point(121, 134);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(76, 21);
+            this.comboBox5.Size = new System.Drawing.Size(75, 21);
             this.comboBox5.TabIndex = 13;
             // 
             // comboBox4
@@ -302,11 +302,11 @@
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "UP",
-            "DOWN",
-            "LEFT",
-            "RIGHT",
-            "SPACE",
+            "{UP}",
+            "{DOWN}",
+            "{LEFT}",
+            "{RIGHT}",
+            "{SPACE}",
             "a",
             "b",
             "c",
@@ -335,7 +335,7 @@
             this.comboBox4.Location = new System.Drawing.Point(121, 99);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(76, 21);
+            this.comboBox4.Size = new System.Drawing.Size(75, 21);
             this.comboBox4.TabIndex = 12;
             // 
             // label8
@@ -369,11 +369,11 @@
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "UP",
-            "DOWN",
-            "LEFT",
-            "RIGHT",
-            "SPACE",
+            "{UP}",
+            "{DOWN}",
+            "{LEFT}",
+            "{RIGHT}",
+            "{SPACE}",
             "a",
             "b",
             "c",
@@ -402,7 +402,7 @@
             this.comboBox3.Location = new System.Drawing.Point(121, 204);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(76, 21);
+            this.comboBox3.Size = new System.Drawing.Size(75, 21);
             this.comboBox3.TabIndex = 8;
             // 
             // label5
@@ -449,11 +449,11 @@
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "UP",
-            "DOWN",
-            "LEFT",
-            "RIGHT",
-            "SPACE",
+            "{UP}",
+            "{DOWN}",
+            "{LEFT}",
+            "{RIGHT}",
+            "{SPACE}",
             "a",
             "b",
             "c",
@@ -482,7 +482,7 @@
             this.comboBox1.Location = new System.Drawing.Point(121, 32);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(76, 21);
+            this.comboBox1.Size = new System.Drawing.Size(75, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // label2
@@ -502,7 +502,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(111, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 20);
+            this.label3.Size = new System.Drawing.Size(95, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Key";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -514,11 +514,11 @@
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "UP",
-            "DOWN",
-            "LEFT",
-            "RIGHT",
-            "SPACE",
+            "{UP}",
+            "{DOWN}",
+            "{LEFT}",
+            "{RIGHT}",
+            "{SPACE}",
             "a",
             "b",
             "c",
@@ -547,7 +547,7 @@
             this.comboBox2.Location = new System.Drawing.Point(121, 65);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(76, 21);
+            this.comboBox2.Size = new System.Drawing.Size(75, 21);
             this.comboBox2.TabIndex = 6;
             // 
             // label7
@@ -566,9 +566,9 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(213, 3);
+            this.label12.Location = new System.Drawing.Point(212, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(325, 20);
+            this.label12.Size = new System.Drawing.Size(326, 20);
             this.label12.TabIndex = 15;
             this.label12.Text = "Sensitivity";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
