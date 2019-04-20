@@ -18,37 +18,199 @@ namespace CapacitiveTouchSensingKitService
         [DllImport("User32.dll")]
         static extern int SetForegroundWindow(IntPtr point);
         SerialPort serialPrt;
+        string selectedPort = "";
+        bool isSerialReadActive = false;
+
 
         public Form1()
         {
             InitializeComponent();
-            serialPrt = new SerialPort();
-            string[] allSerialPorts = SerialPort.GetPortNames();
-            comboBox7.DataSource = allSerialPorts;
-            serialPrt.BaudRate = 9600;
-            serialPrt.PortName = "COM4";
-            serialPrt.Open();
+            updateSerialPorts();
+            /*string[] allSerialPorts_array = SerialPort.GetPortNames();
+            List<string> allSerialPorts = allSerialPorts_array.ToList<string>();
+            allSerialPorts.Insert(0, "----------");
+            comboBox7.DataSource = allSerialPorts;*/
+            trackBar1.SetRange(400, 10000);
+            trackBar2.SetRange(400, 10000);
+            trackBar3.SetRange(400, 10000);
+            trackBar4.SetRange(400, 10000);
+            trackBar5.SetRange(400, 10000);
+            trackBar6.SetRange(400, 10000);
+
+            //checkIfArduinoConnected();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        void updateSerialPorts()
         {
-            Process p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
+            string[] allSerialPorts_array = SerialPort.GetPortNames();
+            List<string> allSerialPorts = allSerialPorts_array.ToList<string>();
+            allSerialPorts.Insert(0, "----------");
+            comboBox7.DataSource = allSerialPorts;
+        }
+
+        /*void checkIfArduinoConnected()
+        {
+            serialPrt = new SerialPort();
+            serialPrt.BaudRate = 9600;
+            string[] allSerialPorts = SerialPort.GetPortNames();
+            foreach (string s in allSerialPorts)
+            {
+                serialPrt.PortName = s;
+                try
+                {
+                    serialPrt.Open();
+                    selectedPort = s;
+                    Debug.WriteLine("COM port " + s + " selected");
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e);
+                }                
+            }
+            if (selectedPort == "")
+            {
+                Debug.WriteLine("No COM port found");
+            }
+            else
+            {
+                tableLayoutPanel1.Visible = true;
+                pictureBox1.BackColor = Color.SkyBlue;
+                label11.Visible = true;
+                label10.Visible = false;
+            }
+        }*/
+
+        void checkIfPortValidAndConnect(string port)
+        {
+            serialPrt = new SerialPort();
+            serialPrt.BaudRate = 9600;
+            serialPrt.PortName = port;
+            selectedPort = "";
+            try
+            {
+                serialPrt.Open();
+                selectedPort = port;
+                serialPrt.DataReceived += new SerialDataReceivedEventHandler(sprt_DataReceived);
+                Debug.WriteLine("Port " + port + " selected");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+            if (selectedPort == "")
+            {
+                Debug.WriteLine("No COM port found");
+                tableLayoutPanel1.Visible = false;
+                pictureBox1.BackColor = Color.IndianRed;
+                label11.Visible = false;
+                label10.Visible = true;
+            }
+            else
+            {
+                tableLayoutPanel1.Visible = true;
+                pictureBox1.BackColor = Color.SkyBlue;
+                label11.Visible = true;
+                label10.Visible = false;
+                //passKeyEvents();
+            }
+        }
+
+        void passKeyEvents()
+        {
+            /*Process p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
             if (p != null)
             {
                 IntPtr h = p.MainWindowHandle;
                 SetForegroundWindow(h);
-                while (true)
-                {
-                    string arduinoData = serialPrt.ReadLine();
-                    //SendKeys.SendWait("{RIGHT}");
-                    SendKeys.SendWait(arduinoData);
-                }
-            }
+            }*/
+            Debug.WriteLine("Passing key values");
+            /*while (isSerialReadActive)
+            {
+                //SetForegroundWindow(h);
+                string arduinoData = serialPrt.ReadLine();
+                Debug.WriteLine("arduinoData : " + arduinoData);
+                //SendKeys.SendWait("{RIGHT}");
+                //SendKeys.SendWait(arduinoData);
+            }*/
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void sprt_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            string indata = serialPrt.ReadLine();
+            Debug.WriteLine("indata" + indata);
+            SendKeys.SendWait(indata);
+        }
 
+        void stopArduinoRead(object sender, EventArgs e)
+        {
+            Debug.WriteLine("stopArduinoRead");
+            //isSerialReadActive = false;
+        }
+
+        void onSelectSerialPort(object sender, EventArgs e)
+        {
+            if (selectedPort != "")
+            {
+                serialPrt.Close();
+            }
+            isSerialReadActive = true;
+            Debug.WriteLine(comboBox7.SelectedValue.ToString());
+            checkIfPortValidAndConnect(comboBox7.SelectedValue.ToString());
+        }
+
+        void connector1SensitivityValueChanged(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(trackBar1, "" + trackBar1.Value);
+            //Debug.WriteLine(trackBar1.Value);
+            //serialPrt.WriteLine("sdsds");
+            serialPrt.WriteLine("<1, " + trackBar1.Value + ">");
+            //serialPrt.WriteLine("<HelloWorld, 12, 24.7>");
+        }
+
+        void connector2SensitivityValueChanged(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(trackBar2, "" + trackBar1.Value);
+            //Debug.WriteLine(trackBar2.Value);
+            //serialPrt.WriteLine(""+trackBar2.Value);
+            serialPrt.WriteLine("<2, " + trackBar2.Value + ">");
+        }
+
+        void connector3SensitivityValueChanged(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(trackBar3, "" + trackBar1.Value);
+            //Debug.WriteLine(trackBar3.Value);
+            //serialPrt.WriteLine(""+trackBar3.Value);
+            serialPrt.WriteLine("<3, " + trackBar3.Value + ">");
+        }
+
+        void connector4SensitivityValueChanged(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(trackBar4, "" + trackBar1.Value);
+            //Debug.WriteLine(trackBar4.Value);
+            //serialPrt.WriteLine(""+trackBar4.Value);
+            serialPrt.WriteLine("<4, " + trackBar4.Value + ">");
+        }
+
+        void connector5SensitivityValueChanged(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(trackBar5, "" + trackBar1.Value);
+            //Debug.WriteLine(trackBar5.Value);
+            //serialPrt.WriteLine(""+trackBar5.Value);
+            serialPrt.WriteLine("<5, " + trackBar5.Value + ">");
+        }
+
+        void connector6SensitivityValueChanged(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(trackBar6, "" + trackBar1.Value);
+            //Debug.WriteLine(trackBar6.Value);
+            //serialPrt.WriteLine(""+trackBar6.Value);
+            serialPrt.WriteLine("<6, " + trackBar6.Value + ">");
+        }
+
+        private void refreshPorts(object sender, EventArgs e)
+        {
+            updateSerialPorts();
         }
     }
 }
