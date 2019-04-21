@@ -134,24 +134,24 @@ namespace CapacitiveTouchSensingKitService
             }
         }
 
-        void passKeyEvents()
+        /*void passKeyEvents()
         {
-            /*Process p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
+            Process p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
             if (p != null)
             {
                 IntPtr h = p.MainWindowHandle;
                 SetForegroundWindow(h);
-            }*/
+            }
             Debug.WriteLine("Passing key values");
-            /*while (isSerialReadActive)
+            while (isSerialReadActive)
             {
                 //SetForegroundWindow(h);
                 string arduinoData = serialPrt.ReadLine();
                 Debug.WriteLine("arduinoData : " + arduinoData);
                 //SendKeys.SendWait("{RIGHT}");
                 //SendKeys.SendWait(arduinoData);
-            }*/
-        }
+            }
+        }*/
 
         void readSerial()
         {
@@ -177,19 +177,19 @@ namespace CapacitiveTouchSensingKitService
                                     //Debug.WriteLine("" + comboBoxSelectedText2);
                                     break;
                                 case 3:
-                                    SendKeys.SendWait("" + comboBoxSelectedText3);
+                                    SendKeys.SendWait("" + comboBoxSelectedText4);
                                     //Debug.WriteLine("" + comboBoxSelectedText3);
                                     break;
                                 case 4:
-                                    SendKeys.SendWait("" + comboBoxSelectedText4);
+                                    SendKeys.SendWait("" + comboBoxSelectedText5);
                                     //Debug.WriteLine("" + comboBoxSelectedText4);
                                     break;
                                 case 5:
-                                    SendKeys.SendWait("" + comboBoxSelectedText5);
+                                    SendKeys.SendWait("" + comboBoxSelectedText6);
                                     //Debug.WriteLine("" + comboBoxSelectedText5);
                                     break;
                                 case 6:
-                                    SendKeys.SendWait("" + comboBoxSelectedText6);
+                                    SendKeys.SendWait("" + comboBoxSelectedText3);
                                     //Debug.WriteLine("" + comboBoxSelectedText6);
                                     break;
                                 default:
@@ -237,15 +237,23 @@ namespace CapacitiveTouchSensingKitService
 
         void connector2SensitivityValueChanged(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(trackBar2, "" + trackBar1.Value);
+            toolTip1.SetToolTip(trackBar2, "" + trackBar2.Value);
             //Debug.WriteLine(trackBar2.Value);
             //serialPrt.WriteLine(""+trackBar2.Value);
             serialPrt.WriteLine("<2, " + trackBar2.Value + ">");
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //readThread.Abort();
+            serialPrt.Close();
+            //Debug.WriteLine("stopArduinoRead");
+            isSerialReadActive = false;
+        }
+
         void connector3SensitivityValueChanged(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(trackBar3, "" + trackBar1.Value);
+            toolTip1.SetToolTip(trackBar3, "" + trackBar3.Value);
             //Debug.WriteLine(trackBar3.Value);
             //serialPrt.WriteLine(""+trackBar3.Value);
             serialPrt.WriteLine("<3, " + trackBar3.Value + ">");
@@ -253,7 +261,7 @@ namespace CapacitiveTouchSensingKitService
 
         void connector4SensitivityValueChanged(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(trackBar4, "" + trackBar1.Value);
+            toolTip1.SetToolTip(trackBar4, "" + trackBar4.Value);
             //Debug.WriteLine(trackBar4.Value);
             //serialPrt.WriteLine(""+trackBar4.Value);
             serialPrt.WriteLine("<4, " + trackBar4.Value + ">");
@@ -261,7 +269,7 @@ namespace CapacitiveTouchSensingKitService
 
         void connector5SensitivityValueChanged(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(trackBar5, "" + trackBar1.Value);
+            toolTip1.SetToolTip(trackBar5, "" + trackBar5.Value);
             //Debug.WriteLine(trackBar5.Value);
             //serialPrt.WriteLine(""+trackBar5.Value);
             serialPrt.WriteLine("<5, " + trackBar5.Value + ">");
@@ -269,7 +277,7 @@ namespace CapacitiveTouchSensingKitService
 
         void connector6SensitivityValueChanged(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(trackBar6, "" + trackBar1.Value);
+            toolTip1.SetToolTip(trackBar6, "" + trackBar6.Value);
             //Debug.WriteLine(trackBar6.Value);
             //serialPrt.WriteLine(""+trackBar6.Value);
             serialPrt.WriteLine("<6, " + trackBar6.Value + ">");

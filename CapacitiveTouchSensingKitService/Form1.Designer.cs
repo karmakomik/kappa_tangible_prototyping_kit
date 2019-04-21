@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -54,22 +53,22 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.trackBar4 = new System.Windows.Forms.TrackBar();
-            this.trackBar5 = new System.Windows.Forms.TrackBar();
-            this.trackBar6 = new System.Windows.Forms.TrackBar();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.trackBar6 = new System.Windows.Forms.TrackBar();
+            this.trackBar5 = new System.Windows.Forms.TrackBar();
+            this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +76,6 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.CausesValidation = false;
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -86,7 +84,7 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(858, 378);
+            this.panel1.Size = new System.Drawing.Size(858, 315);
             this.panel1.TabIndex = 1;
             // 
             // button1
@@ -99,17 +97,6 @@
             this.button1.TabIndex = 11;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.refreshPorts);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(23, 316);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 46);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "DISCONNECT";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.stopArduinoRead);
             // 
             // label11
             // 
@@ -173,7 +160,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.56951F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.43049F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 331F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 332F));
             this.tableLayoutPanel1.Controls.Add(this.comboBox6, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.comboBox5, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.comboBox4, 1, 3);
@@ -246,7 +233,7 @@
             "x",
             "y",
             "z"});
-            this.comboBox6.Location = new System.Drawing.Point(121, 169);
+            this.comboBox6.Location = new System.Drawing.Point(120, 169);
             this.comboBox6.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(75, 21);
@@ -289,7 +276,7 @@
             "x",
             "y",
             "z"});
-            this.comboBox5.Location = new System.Drawing.Point(121, 134);
+            this.comboBox5.Location = new System.Drawing.Point(120, 134);
             this.comboBox5.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(75, 21);
@@ -332,7 +319,7 @@
             "x",
             "y",
             "z"});
-            this.comboBox4.Location = new System.Drawing.Point(121, 99);
+            this.comboBox4.Location = new System.Drawing.Point(120, 99);
             this.comboBox4.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(75, 21);
@@ -345,7 +332,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 136);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 16);
+            this.label8.Size = new System.Drawing.Size(101, 16);
             this.label8.TabIndex = 11;
             this.label8.Text = "Connector 4";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -357,7 +344,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 101);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 16);
+            this.label6.Size = new System.Drawing.Size(101, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Connector 3";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -399,7 +386,7 @@
             "x",
             "y",
             "z"});
-            this.comboBox3.Location = new System.Drawing.Point(121, 204);
+            this.comboBox3.Location = new System.Drawing.Point(120, 204);
             this.comboBox3.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(75, 21);
@@ -412,7 +399,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 206);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 16);
+            this.label5.Size = new System.Drawing.Size(101, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Connector 6";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -424,7 +411,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.Size = new System.Drawing.Size(101, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "Connector 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -436,7 +423,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 16);
+            this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Connector 1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -479,7 +466,7 @@
             "x",
             "y",
             "z"});
-            this.comboBox1.Location = new System.Drawing.Point(121, 32);
+            this.comboBox1.Location = new System.Drawing.Point(120, 32);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(75, 21);
@@ -491,7 +478,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(101, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Connector";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -500,7 +487,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(111, 3);
+            this.label3.Location = new System.Drawing.Point(110, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 20);
             this.label3.TabIndex = 0;
@@ -544,7 +531,7 @@
             "x",
             "y",
             "z"});
-            this.comboBox2.Location = new System.Drawing.Point(121, 65);
+            this.comboBox2.Location = new System.Drawing.Point(120, 65);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(13, 3, 13, 3);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(75, 21);
@@ -557,7 +544,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 171);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 16);
+            this.label7.Size = new System.Drawing.Size(101, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Connector 5";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -566,87 +553,17 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(212, 3);
+            this.label12.Location = new System.Drawing.Point(211, 3);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(326, 20);
+            this.label12.Size = new System.Drawing.Size(327, 20);
             this.label12.TabIndex = 15;
             this.label12.Text = "Sensitivity";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.trackBar1.Location = new System.Drawing.Point(214, 29);
-            this.trackBar1.Maximum = 10000;
-            this.trackBar1.Minimum = 400;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(322, 28);
-            this.trackBar1.SmallChange = 50;
-            this.trackBar1.TabIndex = 16;
-            this.trackBar1.TickFrequency = 50;
-            this.trackBar1.Value = 1000;
-            this.trackBar1.ValueChanged += new System.EventHandler(this.connector1SensitivityValueChanged);
-            // 
-            // trackBar3
-            // 
-            this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.trackBar3.Location = new System.Drawing.Point(214, 95);
-            this.trackBar3.Maximum = 10000;
-            this.trackBar3.Minimum = 400;
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(322, 29);
-            this.trackBar3.SmallChange = 50;
-            this.trackBar3.TabIndex = 18;
-            this.trackBar3.TickFrequency = 50;
-            this.trackBar3.Value = 1000;
-            this.trackBar3.ValueChanged += new System.EventHandler(this.connector3SensitivityValueChanged);
-            // 
-            // trackBar4
-            // 
-            this.trackBar4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.trackBar4.Location = new System.Drawing.Point(214, 130);
-            this.trackBar4.Maximum = 10000;
-            this.trackBar4.Minimum = 400;
-            this.trackBar4.Name = "trackBar4";
-            this.trackBar4.Size = new System.Drawing.Size(322, 29);
-            this.trackBar4.SmallChange = 50;
-            this.trackBar4.TabIndex = 19;
-            this.trackBar4.TickFrequency = 50;
-            this.trackBar4.Value = 1000;
-            this.trackBar4.ValueChanged += new System.EventHandler(this.connector4SensitivityValueChanged);
-            // 
-            // trackBar5
-            // 
-            this.trackBar5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.trackBar5.Location = new System.Drawing.Point(214, 165);
-            this.trackBar5.Maximum = 10000;
-            this.trackBar5.Minimum = 400;
-            this.trackBar5.Name = "trackBar5";
-            this.trackBar5.Size = new System.Drawing.Size(322, 29);
-            this.trackBar5.SmallChange = 50;
-            this.trackBar5.TabIndex = 20;
-            this.trackBar5.TickFrequency = 50;
-            this.trackBar5.Value = 1000;
-            this.trackBar5.ValueChanged += new System.EventHandler(this.connector5SensitivityValueChanged);
-            // 
-            // trackBar6
-            // 
-            this.trackBar6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.trackBar6.Location = new System.Drawing.Point(214, 200);
-            this.trackBar6.Maximum = 10000;
-            this.trackBar6.Minimum = 400;
-            this.trackBar6.Name = "trackBar6";
-            this.trackBar6.Size = new System.Drawing.Size(322, 29);
-            this.trackBar6.SmallChange = 50;
-            this.trackBar6.TabIndex = 21;
-            this.trackBar6.TickFrequency = 50;
-            this.trackBar6.Value = 1000;
-            this.trackBar6.ValueChanged += new System.EventHandler(this.connector6SensitivityValueChanged);
-            // 
             // trackBar2
             // 
             this.trackBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.trackBar2.Location = new System.Drawing.Point(214, 63);
+            this.trackBar2.Location = new System.Drawing.Point(213, 63);
             this.trackBar2.Maximum = 10000;
             this.trackBar2.Minimum = 400;
             this.trackBar2.Name = "trackBar2";
@@ -657,27 +574,99 @@
             this.trackBar2.Value = 1000;
             this.trackBar2.ValueChanged += new System.EventHandler(this.connector2SensitivityValueChanged);
             // 
+            // trackBar6
+            // 
+            this.trackBar6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.trackBar6.Location = new System.Drawing.Point(213, 200);
+            this.trackBar6.Maximum = 10000;
+            this.trackBar6.Minimum = 400;
+            this.trackBar6.Name = "trackBar6";
+            this.trackBar6.Size = new System.Drawing.Size(322, 29);
+            this.trackBar6.SmallChange = 50;
+            this.trackBar6.TabIndex = 21;
+            this.trackBar6.TickFrequency = 50;
+            this.trackBar6.Value = 1000;
+            this.trackBar6.ValueChanged += new System.EventHandler(this.connector6SensitivityValueChanged);
+            // 
+            // trackBar5
+            // 
+            this.trackBar5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.trackBar5.Location = new System.Drawing.Point(213, 165);
+            this.trackBar5.Maximum = 10000;
+            this.trackBar5.Minimum = 400;
+            this.trackBar5.Name = "trackBar5";
+            this.trackBar5.Size = new System.Drawing.Size(322, 29);
+            this.trackBar5.SmallChange = 50;
+            this.trackBar5.TabIndex = 20;
+            this.trackBar5.TickFrequency = 50;
+            this.trackBar5.Value = 1000;
+            this.trackBar5.ValueChanged += new System.EventHandler(this.connector5SensitivityValueChanged);
+            // 
+            // trackBar4
+            // 
+            this.trackBar4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.trackBar4.Location = new System.Drawing.Point(213, 130);
+            this.trackBar4.Maximum = 10000;
+            this.trackBar4.Minimum = 400;
+            this.trackBar4.Name = "trackBar4";
+            this.trackBar4.Size = new System.Drawing.Size(322, 29);
+            this.trackBar4.SmallChange = 50;
+            this.trackBar4.TabIndex = 19;
+            this.trackBar4.TickFrequency = 50;
+            this.trackBar4.Value = 1000;
+            this.trackBar4.ValueChanged += new System.EventHandler(this.connector4SensitivityValueChanged);
+            // 
+            // trackBar3
+            // 
+            this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.trackBar3.Location = new System.Drawing.Point(213, 95);
+            this.trackBar3.Maximum = 10000;
+            this.trackBar3.Minimum = 400;
+            this.trackBar3.Name = "trackBar3";
+            this.trackBar3.Size = new System.Drawing.Size(322, 29);
+            this.trackBar3.SmallChange = 50;
+            this.trackBar3.TabIndex = 18;
+            this.trackBar3.TickFrequency = 50;
+            this.trackBar3.Value = 1000;
+            this.trackBar3.ValueChanged += new System.EventHandler(this.connector3SensitivityValueChanged);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.trackBar1.Location = new System.Drawing.Point(213, 29);
+            this.trackBar1.Maximum = 10000;
+            this.trackBar1.Minimum = 400;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(322, 28);
+            this.trackBar1.SmallChange = 50;
+            this.trackBar1.TabIndex = 16;
+            this.trackBar1.TickFrequency = 50;
+            this.trackBar1.Value = 1000;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.connector1SensitivityValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(880, 401);
+            this.ClientSize = new System.Drawing.Size(880, 337);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Kappa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -704,16 +693,15 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.TrackBar trackBar3;
         private System.Windows.Forms.TrackBar trackBar4;
         private System.Windows.Forms.TrackBar trackBar5;
         private System.Windows.Forms.TrackBar trackBar6;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TrackBar trackBar2;
     }
 }
 

@@ -19,6 +19,7 @@ char tempChars[numChars];        // temporary array for use when parsing
 // variables to hold the parsed data
 char selectedConnector[numChars] = {0};
 int connectorSensitivity = 0;
+int selectedConnectorNum = 0;
 float floatFromPC = 0.0;
 
 boolean newData = false;
@@ -42,13 +43,13 @@ void setup()
 
 void loop() 
 {
-   long total1 =  cs_3_2.capacitiveSensor(50);
-   long total2 =  cs_3_5.capacitiveSensor(50);
-   long total3 =  cs_3_A5.capacitiveSensor(50);
-   long total4 =  cs_3_A0.capacitiveSensor(50);
-   long total5 =  cs_4_6.capacitiveSensor(50);
-   long total6 =  cs_4_7.capacitiveSensor(50);
-
+    long total1 =  cs_3_A0.capacitiveSensor(50);//1  
+    long total2 =  cs_4_6.capacitiveSensor(50);//2
+    long total3 =  cs_4_7.capacitiveSensor(50);//3
+    long total4 =  cs_3_A5.capacitiveSensor(50);//4
+    long total5 =  cs_3_2.capacitiveSensor(50);//5
+    long total6 =  cs_3_5.capacitiveSensor(50);//6
+  
      /*Serial.print("total1 : ");
     Serial.print(total1);
     Serial.print(", total2 : ");
@@ -157,12 +158,12 @@ void parseData()
 
     strtokIndx = strtok(tempChars,",");      // get the first part - the string
     strcpy(selectedConnector, strtokIndx); // copy it to messageFromPC
-    int connectorNum = atoi(strtokIndx);
+    selectedConnectorNum = atoi(strtokIndx);
 
     strtokIndx = strtok(NULL, ","); // this continues where the previous call left off
     connectorSensitivity = atoi(strtokIndx);     // convert this part to an integer
 
-    /*switch (connectorNum) 
+    switch (selectedConnectorNum) 
     {
       case 1:
         threshold1 = connectorSensitivity; 
@@ -185,7 +186,7 @@ void parseData()
       default:
         // statements
         break;
-    }  */
+    }  
  
 
 
@@ -196,11 +197,11 @@ void parseData()
 
 //============
 
-void showParsedData() 
+void showParsedData() //Use only for debugging purposes
 {
     //Serial.print("Message ");
-    //Serial.println(selectedConnector);
-    //Serial.print("Integer ");
+    //Serial.println(selectedConnectorNum);
+    //Serial.print("-");
     //Serial.println(connectorSensitivity);
     //Serial.print("Float ");
     //Serial.println(floatFromPC);
