@@ -1,4 +1,3 @@
-
 #include <CapacitiveSensor.h>
 
 CapacitiveSensor   cs_3_2 = CapacitiveSensor(3,2); // 1M resistor between pins 4 & 8, pin 8 is sensor pin, add a wire and or foil
@@ -7,6 +6,8 @@ CapacitiveSensor   cs_3_A5 = CapacitiveSensor(3,A5);
 CapacitiveSensor   cs_3_A0 = CapacitiveSensor(3,A0);
 CapacitiveSensor   cs_4_6 = CapacitiveSensor(4,6);
 CapacitiveSensor   cs_4_7 = CapacitiveSensor(4,7);
+
+//Serial parts adapted from http://forum.arduino.cc/index.php?topic=396450
 
 int threshold1, threshold2, threshold3, threshold4, threshold5, threshold6;
 bool stringComplete = false;  
