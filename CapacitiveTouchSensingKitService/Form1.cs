@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -81,7 +81,7 @@ namespace CapacitiveTouchSensingKitService
         void updateSerialPorts()
         {
             string[] allSerialPorts_array = SerialPort.GetPortNames();
-            List<string> allSerialPorts = allSerialPorts_array.ToList<string>();
+            List<string> allSerialPorts = new List<string>(allSerialPorts_array); //allSerialPorts_array.  ToList<string>();
             allSerialPorts.Insert(0, "----------");
             comboBox7.DataSource = allSerialPorts;
         }
@@ -126,11 +126,23 @@ namespace CapacitiveTouchSensingKitService
 
         void bringScratchToForeground()
         {
-            Process p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
-            if (p != null)
+            try
             {
+                Process[] pArr = Process.GetProcessesByName("Scratch 2");
+                Process p;
+                //p = Process.GetProcessesByName("Scratch 2").FirstOrDefault();
+
+                p = pArr[0];
+
+                if (p != null)
+                {
                 IntPtr h = p.MainWindowHandle;
                 SetForegroundWindow(h);
+                }
+            }
+            catch (Exception e)
+            {
+
             }
         }
 
