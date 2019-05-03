@@ -64,42 +64,42 @@ void loop()
    {      
       Serial.println("1\n");
       //Serial.println("a\n");
-      delay(50);
+      //delay(10);
    }
       
    if(total2 >= threshold2)
    {      
       Serial.println("2\n");
       //Serial.println("b\n");
-      delay(50); 
+      //delay(10); 
    }
     
    if(total3 >= threshold3)
     {      
       Serial.println("3\n");
       //Serial.println("c\n");
-      delay(50);
+      //delay(10);
     }
       
     if(total4 >= threshold4)
     {      
       Serial.println("4\n");
       //Serial.println("d\n");
-      delay(50);
+      //delay(10);
     }
 
     if(total5 >= threshold5)
     {      
       Serial.println("5\n");
       //Serial.println("d\n");
-      delay(50);
+      //delay(10);
     }
 
     if(total6 >= threshold6)
     {      
       Serial.println("6\n");
       //Serial.println("d\n");
-      delay(50);
+      //delay(10);
     }
     
     //Receive Serial Commands
